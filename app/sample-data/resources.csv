@@ -1,5 +1,6 @@
-resourceId,tag,value
-vm-1,service,user-service
-vm-1,env,production
-db-1,service,database
-db-1,env,production
+resourceId,name,type,env,provider,migrated,tags
+res-01,on-prem-vm-1,vm,onprem,,false,"app:legacy-api,owner.team:backend,pii:true"
+res-02,on-prem-db-1,db,onprem,,false,"app:legacy-db,owner.team:db,pii:true"
+res-03,cloud-vm-1,vm,cloud,aws,true,"app:new-api,owner.team:backend,migration.phase:después"
+res-04,cloud-bucket-1,bucket,cloud,aws,true,"app:new-storage,owner.team:backend,migration.phase:después"
+res-05,cloud-bigquery-1,db,cloud,gcp,false,"app:analytics,owner.team:data,pii:false"
