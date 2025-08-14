@@ -1,23 +1,23 @@
 [
-    {
-        "txId": "TX-001",
-        "name": "/api/legacy/endpoint",
-        "customerId": "customer-A",
-        "phase": "antes",
-        "timestamp": 1749984000000
-    },
-    {
-        "txId": "TX-002",
-        "name": "/api/gateway/endpoint",
-        "customerId": "customer-B",
-        "phase": "durante",
-        "timestamp": 1752662400000
-    },
-    {
-        "txId": "TX-003",
-        "name": "/api/new/endpoint",
-        "customerId": "customer-A",
-        "phase": "después",
-        "timestamp": 1755168000000
-    }
+  {
+    "txId": "TX-001",
+    "name": "/api/legacy/endpoint",
+    "customerId": "customer-A",
+    "phase": "antes",
+    "timestamp": 1749984000000
+  },
+  {
+    "txId": "TX-002",
+    "name": "/api/gateway/endpoint",
+    "customerId": "customer-B",
+    "phase": "durante",
+    "timestamp": 1752662400000
+  },
+  {
+    "txId": "TX-003",
+    "name": "/api/new/endpoint",
+    "customerId": "customer-A",
+    "phase": "después",
+    "timestamp": 1755168000000
+  }
 ]

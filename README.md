@@ -8,17 +8,17 @@ CostScope is a cost observability system that compares on-prem vs. cloud costs a
 
 The Minimum Viable Product (MVP) will focus on the following:
 
--   **Core Functionality:**
-    -   Calculate and display cost per transaction.
-    -   Link to OpenTelemetry-like traces.
-    -   Associate costs with migrated resource tags.
--   **Technology Stack:**
-    -   **Frontend:** 100% in-browser Progressive Web App (PWA).
-    -   **Data Storage:** IndexedDB.
-    -   **Data Import/Export:** File System Access API.
-    -   **Computation:** Web Workers for background calculations.
--   **Optional Backend:**
-    -   A Python microservice (using FastAPI) for heavy data aggregation and parsing CSV/JSON files.
+- **Core Functionality:**
+  - Calculate and display cost per transaction.
+  - Link to OpenTelemetry-like traces.
+  - Associate costs with migrated resource tags.
+- **Technology Stack:**
+  - **Frontend:** 100% in-browser Progressive Web App (PWA).
+  - **Data Storage:** IndexedDB.
+  - **Data Import/Export:** File System Access API.
+  - **Computation:** Web Workers for background calculations.
+- **Optional Backend:**
+  - A Python microservice (using FastAPI) for heavy data aggregation and parsing CSV/JSON files.
 
 ## Long-Term Vision (2025)
 

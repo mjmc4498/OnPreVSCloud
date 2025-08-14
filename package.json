@@ -1,0 +1,25 @@
+{
+  "name": "costscope",
+  "version": "0.1.0",
+  "description": "A cost observability system that compares on-prem vs. cloud costs.",
+  "main": "app/js/main.js",
+  "private": true,
+  "scripts": {
+    "test": "npx vitest",
+    "format": "prettier --write .",
+    "dev": "http-server ./app -o",
+    "serve": "http-server ./app"
+  },
+  "keywords": [
+    "finops",
+    "observability",
+    "cost"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "prettier": "^3.6.2",
+    "vitest": "^3.2.4"
+  }
+}

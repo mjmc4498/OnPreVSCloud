@@ -1,69 +1,69 @@
 [
-    {
-        "spanId": "span-01a",
-        "txId": "TX-001",
-        "serviceName": "legacy-api",
-        "operation": "http.request",
-        "start": 1749984000000,
-        "end": 1749984000150,
-        "attrs": { "tx.id": "TX-001", "cloud.resource_id": "res-01" }
-    },
-    {
-        "spanId": "span-01b",
-        "txId": "TX-001",
-        "parentSpanId": "span-01a",
-        "serviceName": "legacy-db",
-        "operation": "db.query",
-        "start": 1749984000050,
-        "end": 1749984000120,
-        "attrs": { "tx.id": "TX-001", "cloud.resource_id": "res-02" }
-    },
-    {
-        "spanId": "span-02a",
-        "txId": "TX-002",
-        "serviceName": "gateway",
-        "operation": "http.request",
-        "start": 1752662400000,
-        "end": 1752662400200,
-        "attrs": { "tx.id": "TX-002", "cloud.resource_id": "res-01" }
-    },
-    {
-        "spanId": "span-02b",
-        "txId": "TX-002",
-        "parentSpanId": "span-02a",
-        "serviceName": "new-api",
-        "operation": "http.request",
-        "start": 1752662400100,
-        "end": 1752662400180,
-        "attrs": { "tx.id": "TX-002", "cloud.resource_id": "res-03" }
-    },
-    {
-        "spanId": "span-03a",
-        "txId": "TX-003",
-        "serviceName": "new-api",
-        "operation": "http.request",
-        "start": 1755168000000,
-        "end": 1755168000100,
-        "attrs": { "tx.id": "TX-003", "cloud.resource_id": "res-03" }
-    },
-    {
-        "spanId": "span-03b",
-        "txId": "TX-003",
-        "parentSpanId": "span-03a",
-        "serviceName": "new-storage",
-        "operation": "s3.put",
-        "start": 1755168000020,
-        "end": 1755168000080,
-        "attrs": { "tx.id": "TX-003", "cloud.resource_id": "res-04" }
-    },
-    {
-        "spanId": "span-03c",
-        "txId": "TX-003",
-        "parentSpanId": "span-03a",
-        "serviceName": "analytics",
-        "operation": "db.query",
-        "start": 1755168000030,
-        "end": 1755168000090,
-        "attrs": { "tx.id": "TX-003", "cloud.resource_id": "res-05" }
-    }
+  {
+    "spanId": "span-01a",
+    "txId": "TX-001",
+    "serviceName": "legacy-api",
+    "operation": "http.request",
+    "start": 1749984000000,
+    "end": 1749984000150,
+    "attrs": { "tx.id": "TX-001", "cloud.resource_id": "res-01" }
+  },
+  {
+    "spanId": "span-01b",
+    "txId": "TX-001",
+    "parentSpanId": "span-01a",
+    "serviceName": "legacy-db",
+    "operation": "db.query",
+    "start": 1749984000050,
+    "end": 1749984000120,
+    "attrs": { "tx.id": "TX-001", "cloud.resource_id": "res-02" }
+  },
+  {
+    "spanId": "span-02a",
+    "txId": "TX-002",
+    "serviceName": "gateway",
+    "operation": "http.request",
+    "start": 1752662400000,
+    "end": 1752662400200,
+    "attrs": { "tx.id": "TX-002", "cloud.resource_id": "res-01" }
+  },
+  {
+    "spanId": "span-02b",
+    "txId": "TX-002",
+    "parentSpanId": "span-02a",
+    "serviceName": "new-api",
+    "operation": "http.request",
+    "start": 1752662400100,
+    "end": 1752662400180,
+    "attrs": { "tx.id": "TX-002", "cloud.resource_id": "res-03" }
+  },
+  {
+    "spanId": "span-03a",
+    "txId": "TX-003",
+    "serviceName": "new-api",
+    "operation": "http.request",
+    "start": 1755168000000,
+    "end": 1755168000100,
+    "attrs": { "tx.id": "TX-003", "cloud.resource_id": "res-03" }
+  },
+  {
+    "spanId": "span-03b",
+    "txId": "TX-003",
+    "parentSpanId": "span-03a",
+    "serviceName": "new-storage",
+    "operation": "s3.put",
+    "start": 1755168000020,
+    "end": 1755168000080,
+    "attrs": { "tx.id": "TX-003", "cloud.resource_id": "res-04" }
+  },
+  {
+    "spanId": "span-03c",
+    "txId": "TX-003",
+    "parentSpanId": "span-03a",
+    "serviceName": "analytics",
+    "operation": "db.query",
+    "start": 1755168000030,
+    "end": 1755168000090,
+    "attrs": { "tx.id": "TX-003", "cloud.resource_id": "res-05" }
+  }
 ]
