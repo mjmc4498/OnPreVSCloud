@@ -15,7 +15,7 @@ async function main() {
   // Register Service Worker
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
-      .register("sw.js")
+      .register("app/sw.js")
       .then((registration) => {
         console.log(
           "Service Worker registered with scope:",
@@ -106,7 +106,9 @@ async function main() {
 
   // Button for background calculations
   const calculateButton = document.getElementById("calculateButton");
-  const worker = new Worker("js/workers/aggs.worker.js", { type: "module" });
+  const worker = new Worker("app/js/workers/aggs.worker.js", {
+    type: "module",
+  });
 
   worker.onmessage = (event) => {
     console.log("Worker returned:", event.data);

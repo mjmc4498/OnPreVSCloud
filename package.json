@@ -7,8 +7,8 @@
   "scripts": {
     "test": "npx vitest",
     "format": "prettier --write .",
-    "dev": "http-server ./app -o",
-    "serve": "http-server ./app"
+    "dev": "http-server . -o",
+    "serve": "http-server ."
   },
   "keywords": [
     "finops",
