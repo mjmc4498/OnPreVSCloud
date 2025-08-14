@@ -145,11 +145,23 @@ export async function runAllocation() {
 
     console.log("Final Allocated Span Costs:", allocatedSpanCosts);
 
+    // ** Aggregate span costs up to the transaction level **
+    const allocatedTxCosts = new Map();
+    spans.forEach(span => {
+        if (allocatedSpanCosts.has(span.spanId)) {
+            const spanCost = allocatedSpanCosts.get(span.spanId);
+            const currentTxCost = allocatedTxCosts.get(span.txId) || 0;
+            allocatedTxCosts.set(span.txId, currentTxCost + spanCost);
+        }
+    });
+    console.log("Final Allocated Transaction Costs:", allocatedTxCosts);
+
+
     // Any costs left in `unallocatedCosts` could be considered "ghost costs".
     const ghostCosts = unallocatedCosts.filter(c => /* some logic to see if it was used */ true);
     console.log("Ghost Costs (unallocated):", ghostCosts);
 
 
     console.log("Cost allocation engine finished.");
-    return { allocatedSpanCosts, ghostCosts };
+    return { allocatedSpanCosts, allocatedTxCosts, ghostCosts };
 }

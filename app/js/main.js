@@ -1,6 +1,7 @@
-import { initDB } from './db/indexeddb.js';
+import { initDB, getAll } from './db/indexeddb.js';
 import { loadSampleData } from './ingest/loader.js';
 import { runAllocation } from './core/allocator.js';
+import * as metrics from './core/metrics.js';
 
 async function main() {
     // Initialize the database
@@ -35,8 +36,45 @@ async function main() {
     // Button to run the allocation engine
     const runAllocationButton = document.getElementById('runAllocationButton');
     if (runAllocationButton) {
-        runAllocationButton.addEventListener('click', () => {
-            runAllocation();
+        runAllocationButton.addEventListener('click', async () => {
+            console.log('--- Running Allocation & Metrics ---');
+            const { allocatedSpanCosts, allocatedTxCosts, ghostCosts } = await runAllocation();
+
+            // To run metrics, we need the raw data again. This is inefficient for production
+            // but fine for this verification step. A real app would manage this data in a state store.
+            const [transactions, spans, resources, costs] = await Promise.all([
+                getAll('transactions'),
+                getAll('spans'),
+                getAll('resources'),
+                getAll('costs')
+            ]);
+            const resourcesMap = new Map(resources.map(r => [r.resourceId, r]));
+            const transactionsMap = new Map(transactions.map(t => [t.txId, t]));
+
+            // --- Verify Metric Functions ---
+
+            // 1. CPT for the first transaction
+            if (transactions.length > 0) {
+                const firstTxId = transactions[0].txId;
+                const cpt = metrics.calcCPT(firstTxId, allocatedTxCosts);
+                console.log(`Metric: CPT for txId ${firstTxId}:`, cpt);
+            }
+
+            // 2. Total Ghost Cost
+            const totalGhostCost = metrics.ghostCost(ghostCosts);
+            console.log('Metric: Total Ghost Cost:', totalGhostCost);
+
+            // 3. On-prem vs Cloud
+            const comparison = metrics.compareOnPremCloud(costs, resourcesMap);
+            console.log('Metric: On-prem vs Cloud Comparison:', comparison);
+
+            // 4. Phase Split for the first transaction
+            if (transactions.length > 0) {
+                const firstTxId = transactions[0].txId;
+                const split = metrics.phaseSplit(firstTxId, spans, allocatedSpanCosts, transactionsMap);
+                console.log(`Metric: Phase Split for txId ${firstTxId}:`, split);
+            }
+            console.log('--- Finished Running Metrics ---');
         });
     }
 
