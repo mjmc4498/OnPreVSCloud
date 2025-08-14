@@ -94,6 +94,17 @@ export function getDB() {
     return db;
 }
 
+export function getAll(storeName) {
+    return new Promise((resolve, reject) => {
+        const db = getDB();
+        const transaction = db.transaction([storeName], 'readonly');
+        const store = transaction.objectStore(storeName);
+        const request = store.getAll();
+        request.onerror = event => reject(event.target.error);
+        request.onsuccess = event => resolve(event.target.result);
+    });
+}
+
 export async function saveData(storeName, data, validator) {
     // 1. Validate all data before starting the transaction
     if (validator) {

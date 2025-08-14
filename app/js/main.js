@@ -1,5 +1,6 @@
 import { initDB } from './db/indexeddb.js';
 import { loadSampleData } from './ingest/loader.js';
+import { runAllocation } from './core/allocator.js';
 
 async function main() {
     // Initialize the database
@@ -28,6 +29,14 @@ async function main() {
     if (loadSampleDataButton) {
         loadSampleDataButton.addEventListener('click', () => {
             loadSampleData();
+        });
+    }
+
+    // Button to run the allocation engine
+    const runAllocationButton = document.getElementById('runAllocationButton');
+    if (runAllocationButton) {
+        runAllocationButton.addEventListener('click', () => {
+            runAllocation();
         });
     }
 
