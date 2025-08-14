@@ -1,0 +1,9 @@
+{
+    "name": "CostScope",
+    "short_name": "CostScope",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "A cost observability system that compares on-prem vs. cloud costs.",
+    "icons": []
+}
