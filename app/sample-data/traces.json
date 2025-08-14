@@ -1,0 +1,12 @@
+[
+    {
+        "traceId": "trace-1",
+        "service": "api-gateway",
+        "duration": 150
+    },
+    {
+        "traceId": "trace-2",
+        "service": "user-service",
+        "duration": 250
+    }
+]

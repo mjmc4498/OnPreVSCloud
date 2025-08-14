@@ -1,0 +1,5 @@
+resourceId,tag,value
+vm-1,service,user-service
+vm-1,env,production
+db-1,service,database
+db-1,env,production
